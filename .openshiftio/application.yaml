@@ -47,7 +47,7 @@ objects:
       output:
         to:
           kind: ImageStreamTag
-          name: 'nodejs-rest-http-redhat{SUFFIX_NAME}:${RELEASE_VERSION}'
+          name: 'nodejs-rest-http-redhat${SUFFIX_NAME}:${RELEASE_VERSION}'
       postCommit: {}
       resources: {}
       source:
