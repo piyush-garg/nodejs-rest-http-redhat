@@ -77,7 +77,7 @@ objects:
         project: nodejs-rest-http-redhat
         provider: nodeshift
         version: ${RELEASE_VERSION}
-      name: nodejs-rest-http-redhat{SUFFIX_NAME}
+      name: nodejs-rest-http-redhat${SUFFIX_NAME}
     spec:
       ports:
         - protocol: TCP
@@ -90,7 +90,7 @@ objects:
   - apiVersion: v1
     kind: DeploymentConfig
     metadata:
-      name: nodejs-rest-http-redhat{SUFFIX_NAME}
+      name: nodejs-rest-http-redhat${SUFFIX_NAME}
       labels:
         app: nodejs-rest-http-redhat
         provider: nodeshift
@@ -140,7 +140,7 @@ objects:
               - nodejs-rest-http-redhat
             from:
               kind: ImageStreamTag
-              name: 'nodejs-rest-http-redhat{SUFFIX_NAME}:${RELEASE_VERSION}'
+              name: 'nodejs-rest-http-redhat${SUFFIX_NAME}:${RELEASE_VERSION}'
   - apiVersion: v1
     kind: Route
     metadata:
@@ -148,10 +148,10 @@ objects:
         project: nodejs-rest-http-redhat
         provider: nodeshift
         version: ${RELEASE_VERSION}
-      name: nodejs-rest-http-redhat{SUFFIX_NAME}
+      name: nodejs-rest-http-redhat${SUFFIX_NAME}
     spec:
       port:
         targetPort: 8080
       to:
         kind: Service
-        name: nodejs-rest-http-redhat{SUFFIX_NAME}
+        name: nodejs-rest-http-redhat${SUFFIX_NAME}
