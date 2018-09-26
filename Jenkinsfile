@@ -26,19 +26,17 @@ osio {
     def resources = processTemplate(params: [
           RELEASE_VERSION: "1.0.${env.BUILD_NUMBER}"
     ])
-    
-    
-    def route = processTemplate(file: "route.yaml")
+   
 
-    build resources: [resources, route], commands: """
+    build resources: resources, commands: """
          npm --version
          oc version
     """
     
 
-    deploy resources: [resources, route], env: 'stage'
+    deploy resources: resources, env: 'stage'
 
-    deploy resources: [resources, route], env: 'run', approval: 'manual'
+    deploy resources: resources, env: 'run', approval: 'manual'
 
   }
 }
